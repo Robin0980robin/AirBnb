@@ -1,9 +1,29 @@
-﻿namespace Domain;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using Domain.Comunes;
 
-public class Departamento
+namespace Domain;
+
+public class Departamento : Entidad
 {
-    public int Id { get; set; }
-    public string Nombre { get; set; } = string.Empty;
+    public Nombre Nombre { get; set; } = new Nombre(string.Empty);
+
+    // public Dinero Precio { get; set; } = new Dinero(0, Moneda.USD);
+}
+
+public record Nombre(string value);
+
+public record Dinero(decimal value, Moneda Moneda);
+
+public record Moneda
+{
+    public static readonly Moneda USD = new Moneda("USD");
+    public static readonly Moneda EUR = new Moneda("EUR");
+    public string Codigo { get; private init; } = string.Empty;
+
+    private Moneda(string codigo)
+    {
+        Codigo = codigo;
+    }
 }
 
 public interface IDepartamentoRepository

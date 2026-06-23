@@ -9,4 +9,11 @@ public class ApplicationContext : DbContext
         : base(options) { }
 
     public DbSet<Departamento> Departamentos { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationContext).Assembly);
+    }
 }
