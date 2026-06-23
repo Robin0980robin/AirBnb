@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/api/" />
+  <Project Path="AirBnb.AppHost/AirBnb.AppHost.csproj" />
+  <Project Path="AirBnb.ServiceDefaults/AirBnb.ServiceDefaults.csproj" />
   <Project Path="Api/Api.csproj" />
   <Project Path="Application/Application.csproj" />
   <Project Path="Domain/Domain.csproj" />
